@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="shortcut icon" href="img/fav.png">
+	<meta name="author" content="codepixer">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta charset="UTF-8">
+	<title>AFE</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+
+		<%= stylesheet_link_tag "linearicons" %>
+		<%= stylesheet_link_tag "font-awesome.min" %>
+		<%= stylesheet_link_tag "bootstrap" %>
+		<%= stylesheet_link_tag "magnific-popup" %>
+		<%= stylesheet_link_tag "nice-select" %>
+		<%= stylesheet_link_tag "animate.min" %>
+		<%= stylesheet_link_tag "owl.carousel" %>
+		<%= stylesheet_link_tag "main" %>
+		
+	<body>	
+		  <header id="header" id="home">
+		    <div class="container main-menu">
+		    	<div class="row align-items-center justify-content-between d-flex">
+			      <div id="logo">
+			        <a href="index.html"><img src="/logo.png" alt="" title="" /></a>
+			      </div>
+			      <nav id="nav-menu-container">
+			        <ul class="nav-menu">
+			          <li><%= link_to "Home", {:action => 'index' }%></li>
+			          <li><a href="#plan">Plan</a></li>
+			         
+			          <li><a href="#contact">Contact</a></li>
+			          
+			          	<% if current_user.email == "admin@example.com" %>
+
+			            <li><%= link_to "Admin-Dashboard", '/api/admin' %></li>
+			          	<% else %>
+
+			            <li><%= link_to "Dashboard", {:action => 'dashboard' }%></li>
+			          	<% end %>
+						
+						<li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+
+	        		</ul>
+			      </nav><!-- #nav-menu-container -->		    		
+		    	</div>
+		    </div>
+		  </header><!-- #header -->
+		 <br>
+		 <br>
+		 <br>
+		<!-- start banner Area -->
+		<section class="banner-area relative" id="home">
+			<div class="container">
+				<div class="row fullscreen d-flex align-items-center justify-content-start">
+					<div class="banner-content col-lg-8 col-md-12">
+						<h1 class="text-uppercase">
+							We Make <br>
+							API Production <br>
+							More Easier				
+						</h1>
+						<p class="text-white">
+							We help you to integrate your scraper to a generic system <br> and make it available 24/7 in the form of an API.
+						</p>
+					</div>												
+				</div>
+			</div>
+		</section>
+		<!-- End banner Area -->			
+
+		<!-- Start price Area -->
+		<section class="price-area section-gap" id="plan">
+			<div class="container">
+				<div class="row d-flex justify-content-center">
+					<div class="menu-content pb-60 col-lg-8">
+						<div class="title text-center">
+							<h1 class="mb-10">Choose the Perfect Plan for you</h1>
+							<p>Select a plan according to your projected usage.</p>
+							<br>
+							<div class="title text-center">
+						<input name="name" placeholder="Search API" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mb-20 form-control shadow p-3 mb-5 bg-white rounded" required="" type="text">
+ 						<button class="btn btn-outline-primary">Search</button>
+        					</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 shadow p-3 mb-5 bg-white rounded">
+						<div class="single-price">
+							<div class="top-sec d-flex justify-content-between">
+								<div class="top-left">
+
+									<h4>Standard</h4>
+									<p>For the <br>small Company</p>
+								</div>
+								<div class="top-right">
+									<h1>₹20000</h1>
+								</div>
+							</div>
+							<div class="end-sec">
+								<ul>
+									<li>10 requests/minute</li>
+								</ul>
+								<button class="primary-btn price-btn mt-20">Purchase Plan</span></button>
+							</div>								
+						</div> 
+					</div>
+					<div class="col-lg-4 shadow p-3 mb-5 bg-white rounded">
+						<div class="single-price">
+							<div class="top-sec d-flex justify-content-between">
+								<div class="top-left">
+									<h4>Business</h4>
+									<p>For the <br>medium Company</p>
+								</div>
+								<div class="top-right">
+									<h1>₹15000</h1>
+								</div>
+							</div>
+							<div class="end-sec">
+								<ul>
+									<li>20 requests/minute</li>
+								</ul>
+								<button class="primary-btn price-btn mt-20">Purchase Plan</button>
+							</div>								
+						</div> 
+					</div>	
+					<div class="col-lg-4 shadow p-3 mb-5 bg-white rounded">
+						<div class="single-price">
+							<div class="top-sec d-flex justify-content-between">
+								<div class="top-left">
+									<h4>Ultimate</h4>
+									<p>For the <br>large Company</p>
+								</div>
+								<div class="top-right">
+									<h1>₹25000</h1>
+								</div>
+							</div>
+							<div class="end-sec">
+								<ul>
+									<li>60 requests/minute</li>
+								</ul>
+								<button class="primary-btn price-btn mt-20">Purchase Plan</span></button>
+							</div>								
+						</div> 
+					</div>																												
+				</div>
+			</div>	
+		</section>
+
+		<!-- start contact Area -->		
+		<section class="contact-area section-gap" id="contact">
+			<div class="container">
+				<div class="row d-flex justify-content-center">
+					<div class="menu-content pb-30 col-lg-8">
+						<div class="title text-center">
+							<h1 class="mb-10">Contact Us</h1>
+							<p>Who are in extremely love with eco friendly system.</p>
+						</div>
+					</div>
+				</div>										
+				<form class="form-area mt-60" id="myForm" action="mail.php" method="post" class="contact-form text-right">
+					<div class="row">	
+					<div class="col-lg-6 form-group">
+						<input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mb-20 form-control" required="" type="text">
+					
+						<input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="common-input mb-20 form-control" required="" type="email">
+
+						<input name="subject" placeholder="Enter your subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your subject'" class="common-input mb-20 form-control" required="" type="text">
+					</div>
+					<div class="col-lg-6 form-group">
+						<textarea class="common-textarea mt-10 form-control" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
+						<button class="btn btn-outline-primary mt-20">Send Message</button>
+						<div class="mt-10 alert-msg">								
+					</div>
+					</div></div>
+				</form>						
+				
+			</div>	
+		</section>
+		<!-- end contact Area -->	
+
+
+		<!-- start footer Area -->		
+		<footer class="footer-area section-gap">
+			<div class="container" height="10px">
+				<h1 style="color: white; margin-left: 35%;">API FOR EVERYTHING</h1>
+			</div>
+		</footer>		
+	</body>
+</html>
+
+
+

@@ -1,0 +1,163 @@
+    <!DOCTYPE html>
+    <html lang="zxx" class="no-js">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" href="img/fav.png">
+        <meta name="author" content="codepixer">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta charset="UTF-8">
+        <title>AFE</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+
+            <%= stylesheet_link_tag "linearicons" %>
+            <%= stylesheet_link_tag "font-awesome.min" %>
+            <%= stylesheet_link_tag "bootstrap" %>
+            <%= stylesheet_link_tag "magnific-popup" %>
+            <%= stylesheet_link_tag "nice-select" %>
+            <%= stylesheet_link_tag "animate.min" %>
+            <%= stylesheet_link_tag "owl.carousel" %>
+            <%= stylesheet_link_tag "main" %>
+
+
+
+            
+        <body>  
+              <header id="header" id="home">
+                <div class="container main-menu">
+                    <div class="row align-items-center justify-content-between d-flex">
+                      <div id="logo">
+                        <a href="index.html"><img src="/logo.png" alt="" title="" /></a>
+                      </div>
+                      <nav id="nav-menu-container">
+                        <ul class="nav-menu">
+                          <% if user_signed_in? %>  
+                            <li><%= link_to "Home", {:action => 'index' }%></li>
+                            <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'fas fa-calendar-alt' %> </li>
+                            <% end %>                         
+                            <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+                        <% else %>
+                </ul>
+                      </nav><!-- #nav-menu-container -->                    
+                    </div>
+                </div>
+              </header><!-- #header -->
+
+
+
+
+                <br><br><br><br><br>
+
+                    <div class="row d-flex justify-content-center">
+                        <div class="menu-content pb-30 col-lg-8">
+                            <div class="title text-center">
+                                <h1 class="mb-10">Uploaded Scrapers</h1>
+                            </div>
+                        </div>
+                    </div>                                      
+
+
+                <style type="text/css">
+                    td, tr{
+                        margin: 10px 5px;
+                        border: 1px dotted black;
+                        padding: 10px 5px;
+                    }
+
+                    tr:nth-child(even) {background: #fff;}
+                    tr:nth-child(odd) {background: #f4f4f4;}
+                </style>
+
+                <table class="table shadow p-3 mb-5 bg-white rounded" style="width: 80%; margin: auto;">
+                    <tbody>
+
+                        <tr style="background: #000; color: white;">
+                            <td>API NAME</td>
+                            <td>EMAIL</td>
+                            <td>UPLOADED ON</td>
+                            <td>MESSAGE</td>
+                            <td>DOWNLOAD</td>
+                        </tr>
+ 
+                        <tr>
+                            <td>Birthdays</td>
+                            <td>abc@gmail.com </td>
+                            <td>11/2/2019</td>
+                            <td>This is a new scraper</td>
+                            <td><a href="#" class="btn btn-outline-primary">Dowload</a> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Actors</td>
+                            <td>bac@gmail.com </td>
+                            <td>11/2/2019</td>
+                            <td>This is a new scraper</td>
+                            <td><a href="#" class="btn btn-outline-primary">Dowload</a>                         </tr>
+                        <tr>
+                            <td>Birthdays</td>
+                            <td>dabc@gmail.com </td>
+                            <td>11/2/2019</td>
+                            <td>This is a new scraper</td>
+                            <td><a href="#" class="btn btn-outline-primary">Dowload</a>                         </tr>
+
+                    </tbody>
+                </table>
+
+                    <div class="row d-flex justify-content-center">
+                        <div class="menu-content pb-30 col-lg-8">
+                            <div class="title text-center">
+                                <h1 class="mb-10">Manage APIs</h1>
+                            </div>
+                        </div>
+                    </div>                                      
+
+
+                <table class="table shadow p-3 mb-5 bg-white rounded" style="width: 80%; margin: auto;">
+                    <tbody>
+
+                        <tr style="background: #000; color: white;">
+                            <td>API NAME</td>
+                            <td>EMAIL</td>
+                            <td>UPLOADED ON</td>
+                            <td>MESSAGE</td>
+                            <td>DROP API</td>
+                        </tr>
+ 
+                        <tr>
+                            <td>Birthdays</td>
+                            <td>abc@gmail.com </td>
+                            <td>11/2/2019</td>
+                            <td>This is a new scraper</td>
+                            <td><a href="#" class="btn btn-outline-danger">Drop</a> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Actors</td>
+                            <td>bac@gmail.com </td>
+                            <td>11/2/2019</td>
+                            <td>This is a new scraper</td>
+                            <td><a href="#" class="btn btn-outline-danger">Drop</a> 
+                            </td>
+                        <tr>
+                            <td>Birthdays</td>
+                            <td>dabc@gmail.com </td>
+                            <td>11/2/2019</td>
+                            <td>This is a new scraper</td>
+                            <td><a href="#" class="btn btn-outline-danger">Drop</a> 
+                            </td>
+
+                    </tbody>
+                </table>
+
+
+
+            <!-- start footer Area -->      
+            <footer class="footer-area section-gap">
+                <div class="container" height="10px">
+                    <h1 style="color: white; margin-left: 35%;">API FOR EVERYTHING</h1>
+                </div>
+            </footer>       
+        </body>
+    </html>
+

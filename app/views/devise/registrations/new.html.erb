@@ -1,0 +1,46 @@
+<style>
+.sign-in{
+  width: 450px;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  color: black;
+  border-radius: 20px;
+  margin-top: 40px;
+}  
+.black-login{
+  color: black;
+}
+</style>
+<div class="container sign-in" style="background-color: rgba(0,0,255, 0.05)">
+  <img src="/logo.png">
+
+    <h2>Sign up</h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+<br>
+      <div class="actions">
+        <%= f.submit "Sign up", class: "btn btn-outline-primary" %>
+      </div>
+    <% end %>
+    <hr>
+<a href="/users/sign_in" class="btn btn-outline-primary">Sign in</a>
+</div>

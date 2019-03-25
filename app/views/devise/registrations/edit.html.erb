@@ -1,0 +1,55 @@
+<style>
+.sign-in{
+  width: 650px;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  color: black;
+  border-radius: 20px;
+  margin-top: 40px;
+}  
+.black-login{
+  color: black;
+}
+</style>
+<div class="container sign-in" style="background-color: rgba(0,0,255, 0.05)">
+  <img src="/logo.png">
+  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+  <hr>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+  <div class="field">
+    <%= f.label :new_password %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+  <div class="field">
+    <%= f.label :current_password %><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit "Update", class: "btn btn-outline-primary" %>
+  <%= link_to "Back", :back, class: "btn btn-outline-primary" %>
+  </div>
+<% end %>
+<hr>
+<h3>Delete my account</h3>
+<p>Unhappy?<p>
+<br> 
+<%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-outline-danger" %>
+
+</div>
+

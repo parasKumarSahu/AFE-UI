@@ -1,0 +1,151 @@
+    <!DOCTYPE html>
+    <html lang="zxx" class="no-js">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" href="img/fav.png">
+        <meta name="author" content="codepixer">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta charset="UTF-8">
+        <title>AFE</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+
+            <%= stylesheet_link_tag "linearicons" %>
+            <%= stylesheet_link_tag "font-awesome.min" %>
+            <%= stylesheet_link_tag "bootstrap" %>
+            <%= stylesheet_link_tag "magnific-popup" %>
+            <%= stylesheet_link_tag "nice-select" %>
+            <%= stylesheet_link_tag "animate.min" %>
+            <%= stylesheet_link_tag "owl.carousel" %>
+            <%= stylesheet_link_tag "main" %>
+
+
+
+            
+        <body>  
+              <header id="header" id="home">
+                <div class="container main-menu">
+                    <div class="row align-items-center justify-content-between d-flex">
+                      <div id="logo">
+                        <a href="index.html"><img src="/logo.png" alt="" title="" /></a>
+                      </div>
+                      <nav id="nav-menu-container">
+                        <ul class="nav-menu">
+                          <% if user_signed_in? %>  
+                            <li><%= link_to "Home", {:action => 'index' }%></li>
+                            <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'fas fa-calendar-alt' %> </li>
+                            <% end %>                         
+                            <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+                        <% else %>
+                </ul>
+                      </nav><!-- #nav-menu-container -->                    
+                    </div>
+                </div>
+              </header><!-- #header -->
+
+
+
+
+                <br><br><br><br><br>
+
+                    <div class="row d-flex justify-content-center">
+                        <div class="menu-content pb-30 col-lg-8">
+                            <div class="title text-center">
+                                <h1 class="mb-10">Purchased APIs</h1>
+                            </div>
+                        </div>
+                    </div>                                      
+
+
+                <style type="text/css">
+                    td, tr{
+                        margin: 10px 5px;
+                        border: 1px dotted black;
+                        padding: 10px 5px;
+                    }
+
+                    tr:nth-child(even) {background: #fff;}
+                    tr:nth-child(odd) {background: #f4f4f4;}
+                </style>
+
+                <table class="table shadow p-3 mb-5 bg-white rounded" style="width: 80%; margin: auto;">
+                    <tbody>
+
+                        <tr style="background: #000; color: white;">
+                            <td>API NAME</td>
+                            <td>PLAN PURCHASED</td>
+                            <td>DATE OF PURCHASE</td>
+                            <td>EXPIRY DATE</td>
+                            <td>TOKEN</td>
+                        </tr>
+ 
+                        <tr>
+                            <td>Birthdays</td>
+                            <td>15000 </td>
+                            <td>11/2/2019</td>
+                            <td>11/2/2021 </td>
+                            <td>bfkhjf </td>
+                        </tr>
+
+                         <tr>
+                            <td>Actors</td>
+                            <td>25000 </td>
+                            <td>11/4/2019</td>
+                            <td>11/2/2021 </td>
+                            <td>fgesgh </td>
+                        </tr>
+                        
+                         <tr>
+                            <td>Quotes</td>
+                            <td>35000 </td>
+                            <td>11/6/2019</td>
+                            <td>11/2/2021 </td>
+                            <td>mneshdb </td>
+                        </tr> 
+
+                    </tbody>
+                </table>
+
+
+
+
+
+
+
+            <!-- start contact Area -->     
+            <section class="contact-area section-gap" id="contact">
+                <div class="container">
+                    <div class="row d-flex justify-content-center">
+                        <div class="menu-content pb-30 col-lg-8">
+                            <div class="title text-center">
+                                <h1 class="mb-10">Upload a Scraper</h1>
+                            </div>
+                        </div>
+                    </div>                                      
+                    <form class="form-area mt-60" id="myForm" action="mail.php" method="post" class="contact-form text-right">
+                        <div class="row">   
+                            <input name="name" placeholder="Name of API" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mb-20 form-control" required="" type="text">
+                        
+                            <input name="email" placeholder="Select Scaraper to upload" class="common-input mb-20 form-control" required="" type="email">
+                            <textarea class="common-textarea mt-10 form-control" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
+                            <button class="btn btn-outline-primary mt-20">Upload</button>
+                            <div class="mt-10 alert-msg">                               
+                        
+                        </div></div>
+                    </form>                     
+                    
+                </div>  
+            </section>
+            <!-- end contact Area -->   
+    
+
+            <!-- start footer Area -->      
+            <footer class="footer-area section-gap">
+                <div class="container" height="10px">
+                    <h1 style="color: white; margin-left: 35%;">API FOR EVERYTHING</h1>
+                </div>
+            </footer>       
+        </body>
+    </html>
+
