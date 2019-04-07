@@ -123,16 +123,19 @@
                             </div>
                         </div>
                     </div>                                      
-                    <form class="form-area mt-60" id="myForm" action="mail.php" method="post" class="contact-form text-right">
+                    <form action="/scrapper_create" method="get" class="form-area mt-60" class="contact-form text-right">
                         <div class="row">   
-                            <input name="name" placeholder="Name of API" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mb-20 form-control" required="" type="text">
+                            <input name="name" placeholder="Name of API" class="common-input mb-20 form-control" type="text">
                         
-                            <input name="email" placeholder="Select Scaraper to upload" class="common-input mb-20 form-control" required="" type="email">
-                            <textarea class="common-textarea mt-10 form-control" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
+                            <input name="link" placeholder="Link of Scrapper" class="common-input mb-20 form-control" type="text">
+
+                            <input name="email" placeholder="Email" class="common-input mb-20 form-control" type="text">
+
+                            <textarea class="common-textarea mt-10 form-control" name="message" placeholder="Messege"></textarea>
+
                             <button class="btn btn-outline-primary mt-20">Upload</button>
-                            <div class="mt-10 alert-msg">                               
-                        
-                        </div></div>
+
+                        </div>
                     </form>                     
                     
                 </div>  

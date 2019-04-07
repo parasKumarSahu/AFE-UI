@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     get 'api/index'
     get 'api/dashboard'
     get 'api/admin'
+    get 'scrapper_create', to: "api#scrapper_create"
+    get 'upload_scrapper', to: "api#upload_scrapper"
+    get 'drop_scrapper', to: "api#drop_scrapper"
     root to: "api#index"
 
    devise_scope :user do  

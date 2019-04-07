@@ -78,29 +78,21 @@
                             <td>UPLOADED ON</td>
                             <td>MESSAGE</td>
                             <td>DOWNLOAD</td>
+                            <td>UPLOAD</td>
                         </tr>
- 
-                        <tr>
-                            <td>Birthdays</td>
-                            <td>abc@gmail.com </td>
-                            <td>11/2/2019</td>
-                            <td>This is a new scraper</td>
-                            <td><a href="#" class="btn btn-outline-primary">Dowload</a> 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Actors</td>
-                            <td>bac@gmail.com </td>
-                            <td>11/2/2019</td>
-                            <td>This is a new scraper</td>
-                            <td><a href="#" class="btn btn-outline-primary">Dowload</a>                         </tr>
-                        <tr>
-                            <td>Birthdays</td>
-                            <td>dabc@gmail.com </td>
-                            <td>11/2/2019</td>
-                            <td>This is a new scraper</td>
-                            <td><a href="#" class="btn btn-outline-primary">Dowload</a>                         </tr>
-
+                        <% Scrapper.all.each do |s| %>
+                        <% if s.uploaded == "False"%>
+                            <tr>
+                                <td><%= s.name =%></td>
+                                <td><%= s.email =%></td>
+                                <td><%= s.message =%></td>
+                                <td><%= s.message =%></td>
+                                <td><a href="<%= s.link =%>" class="btn btn-outline-primary">Dowload</a> 
+                                <td><a href="/upload_scrapper?name=<%= s.name =%>" class="btn btn-outline-success">Upload</a> 
+                                </td>
+                            </tr>
+                        <% end %>    
+                        <% end %>
                     </tbody>
                 </table>
 
@@ -115,7 +107,6 @@
 
                 <table class="table shadow p-3 mb-5 bg-white rounded" style="width: 80%; margin: auto;">
                     <tbody>
-
                         <tr style="background: #000; color: white;">
                             <td>API NAME</td>
                             <td>EMAIL</td>
@@ -123,30 +114,17 @@
                             <td>MESSAGE</td>
                             <td>DROP API</td>
                         </tr>
- 
-                        <tr>
-                            <td>Birthdays</td>
-                            <td>abc@gmail.com </td>
-                            <td>11/2/2019</td>
-                            <td>This is a new scraper</td>
-                            <td><a href="#" class="btn btn-outline-danger">Drop</a> 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Actors</td>
-                            <td>bac@gmail.com </td>
-                            <td>11/2/2019</td>
-                            <td>This is a new scraper</td>
-                            <td><a href="#" class="btn btn-outline-danger">Drop</a> 
-                            </td>
-                        <tr>
-                            <td>Birthdays</td>
-                            <td>dabc@gmail.com </td>
-                            <td>11/2/2019</td>
-                            <td>This is a new scraper</td>
-                            <td><a href="#" class="btn btn-outline-danger">Drop</a> 
-                            </td>
-
+                        <% Scrapper.all.each do |s| %>
+                        <% if s.uploaded == "True"%>
+                            <tr>
+                                <td><%= s.name =%></td>
+                                <td><%= s.email =%></td>
+                                <td><%= s.message =%></td>
+                                <td><%= s.message =%></td>
+                            <td><a href="/drop_scrapper?name=<%= s.name =%>" class="btn btn-outline-danger">Drop</a> 
+                            </tr>
+                        <% end %>    
+                        <% end %>
                     </tbody>
                 </table>
 
