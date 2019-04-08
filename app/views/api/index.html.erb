@@ -2,7 +2,7 @@
 <html lang="zxx" class="no-js">
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="shortcut icon" href="img/fav.png">
+	<link rel="shortcut icon" href="/img/fav.png">
 	<meta name="author" content="codepixer">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
@@ -81,74 +81,92 @@
 							<p>Select a plan according to your projected usage.</p>
 							<br>
 							<div class="title text-center">
-						<input name="name" placeholder="Search API" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mb-20 form-control shadow p-3 mb-5 bg-white rounded" required="" type="text">
- 						<button class="btn btn-outline-primary">Search</button>
+								<input id="search_value" name="name" placeholder="Enter the name of API" class="common-input mb-20 form-control shadow p-3 mb-5 bg-white rounded" type="text">
+		 						<button id="search_button" onclick="serch()" class="btn btn-outline-primary">Search</button>
         					</div>
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-lg-4 shadow p-3 mb-5 bg-white rounded">
-						<div class="single-price">
-							<div class="top-sec d-flex justify-content-between">
-								<div class="top-left">
+				<% if params[:name] != nil %>
+					<% begin 
+						api = Scrapper.find_by(name: params[:name])
+					   rescue => e
+					   end
+					%>
+					<% if api == nil %>
+						<h2>No API named <%= params[:name] =%> found!</h2>
+					<% else %>
 
-									<h4>Standard</h4>
-									<p>For the <br>small Company</p>
-								</div>
-								<div class="top-right">
-									<h1>₹20000</h1>
-								</div>
+
+
+						<div class="row">
+							<div class="col-lg-4 shadow p-3 mb-5 bg-white rounded">
+								<div class="single-price">
+									<h1><%= api.name =%> API</h1>
+									<div class="top-sec d-flex justify-content-between">
+										<div class="top-left">
+											<h4>Standard</h4>
+											<p>For the <br>small Company</p>
+										</div>
+										<div class="top-right">
+											<h1>₹5000</h1>
+										</div>
+									</div>
+									<div class="end-sec">
+										<ul>
+											<li>10 requests/minute</li>
+										</ul>
+										<button onclick="window.location.href='/purchase?name=<%= api.name =%>&plan=Standard'" class="primary-btn price-btn mt-20 purchase">Purchase Plan</span></button>
+									</div>								
+								</div> 
 							</div>
-							<div class="end-sec">
-								<ul>
-									<li>10 requests/minute</li>
-								</ul>
-								<button class="primary-btn price-btn mt-20">Purchase Plan</span></button>
-							</div>								
-						</div> 
-					</div>
-					<div class="col-lg-4 shadow p-3 mb-5 bg-white rounded">
-						<div class="single-price">
-							<div class="top-sec d-flex justify-content-between">
-								<div class="top-left">
-									<h4>Business</h4>
-									<p>For the <br>medium Company</p>
-								</div>
-								<div class="top-right">
-									<h1>₹15000</h1>
-								</div>
-							</div>
-							<div class="end-sec">
-								<ul>
-									<li>20 requests/minute</li>
-								</ul>
-								<button class="primary-btn price-btn mt-20">Purchase Plan</button>
-							</div>								
-						</div> 
-					</div>	
-					<div class="col-lg-4 shadow p-3 mb-5 bg-white rounded">
-						<div class="single-price">
-							<div class="top-sec d-flex justify-content-between">
-								<div class="top-left">
-									<h4>Ultimate</h4>
-									<p>For the <br>large Company</p>
-								</div>
-								<div class="top-right">
-									<h1>₹25000</h1>
-								</div>
-							</div>
-							<div class="end-sec">
-								<ul>
-									<li>60 requests/minute</li>
-								</ul>
-								<button class="primary-btn price-btn mt-20">Purchase Plan</span></button>
-							</div>								
-						</div> 
-					</div>																												
-				</div>
+							<div class="col-lg-4 shadow p-3 mb-5 bg-white rounded">
+								<div class="single-price">
+									<h1><%= api.name =%> API</h1>
+									<div class="top-sec d-flex justify-content-between">
+										<div class="top-left">
+											<h4>Business</h4>
+											<p>For the <br>medium Company</p>
+										</div>
+										<div class="top-right">
+											<h1>₹15000</h1>
+										</div>
+									</div>
+									<div class="end-sec">
+										<ul>
+											<li>20 requests/minute</li>
+										</ul>
+										<button onclick="window.location.href='/purchase?name=<%= api.name =%>&plan=Business'" class="primary-btn price-btn mt-20 purchase">Purchase Plan</span></button>
+									</div>								
+								</div> 
+							</div>	
+							<div class="col-lg-4 shadow p-3 mb-5 bg-white rounded">
+								<div class="single-price">
+									<h1><%= api.name =%> API</h1>
+									<div class="top-sec d-flex justify-content-between">
+										<div class="top-left">
+											<h4>Ultimate</h4>
+											<p>For the <br>large Company</p>
+										</div>
+										<div class="top-right">
+											<h1>₹25000</h1>
+										</div>
+									</div>
+									<div class="end-sec">
+										<ul>
+											<li>60 requests/minute</li>
+										</ul>
+										<button onclick="window.location.href='/purchase?name=<%= api.name =%>&plan=Ultimate'" class="primary-btn price-btn mt-20 purchase">Purchase Plan</span></button>
+									</div>								
+								</div> 
+							</div>												
+						</div>
+						
+					<% end %>
+				<% end %>
 			</div>	
 		</section>
+
 
 		<!-- start contact Area -->		
 		<section class="contact-area section-gap" id="contact">
@@ -190,6 +208,51 @@
 			</div>
 		</footer>		
 	</body>
+
+<script type="text/javascript">
+	$("#search_button").click(function() {
+		api_name = document.getElementById('search_value').value
+		location = "/api/index?name="+api_name;
+	});
+</script>	
+
+<script type="text/javascript">
+;(function($){
+  
+    /**
+     * Store scroll position for and set it after reload
+     *
+     * @return {boolean} [loacalStorage is available]
+     */
+    $.fn.scrollPosReaload = function(){
+        if (localStorage) {
+            var posReader = localStorage["posStorage"];
+            if (posReader) {
+                $(window).scrollTop(posReader);
+                localStorage.removeItem("posStorage");
+            }
+            $(this).click(function(e) {
+                localStorage["posStorage"] = $(window).scrollTop();
+            });
+
+            return true;
+        }
+
+        return false;
+    }
+    
+    /* ================================================== */
+
+    $(document).ready(function() {
+        // Feel free to set it for any element who trigger the reload
+        $('.btn').scrollPosReaload();
+    });
+  
+}(jQuery));  
+	
+</script>
+
+
 </html>
 
 

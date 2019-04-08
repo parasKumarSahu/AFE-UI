@@ -2,7 +2,7 @@
     <html lang="zxx" class="no-js">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="shortcut icon" href="img/fav.png">
+        <link rel="shortcut icon" href="/img/fav.png">
         <meta name="author" content="codepixer">
         <meta name="description" content="">
         <meta name="keywords" content="">
@@ -78,16 +78,16 @@
                             <td>UPLOADED ON</td>
                             <td>MESSAGE</td>
                             <td>DOWNLOAD</td>
-                            <td>UPLOAD</td>
+                            <td>UPLOAD TO SERVER</td>
                         </tr>
                         <% Scrapper.all.each do |s| %>
                         <% if s.uploaded == "False"%>
                             <tr>
                                 <td><%= s.name =%></td>
                                 <td><%= s.email =%></td>
+                                <td><%= s.date.to_date =%></td>
                                 <td><%= s.message =%></td>
-                                <td><%= s.message =%></td>
-                                <td><a href="<%= s.link =%>" class="btn btn-outline-primary">Dowload</a> 
+                                <td><a href="<%= s.link =%>" class="btn btn-outline-primary">Download</a> 
                                 <td><a href="/upload_scrapper?name=<%= s.name =%>" class="btn btn-outline-success">Upload</a> 
                                 </td>
                             </tr>
@@ -119,7 +119,7 @@
                             <tr>
                                 <td><%= s.name =%></td>
                                 <td><%= s.email =%></td>
-                                <td><%= s.message =%></td>
+                                <td><%= s.date.to_date =%></td>
                                 <td><%= s.message =%></td>
                             <td><a href="/drop_scrapper?name=<%= s.name =%>" class="btn btn-outline-danger">Drop</a> 
                             </tr>

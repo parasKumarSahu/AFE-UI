@@ -2,7 +2,7 @@
     <html lang="zxx" class="no-js">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="shortcut icon" href="img/fav.png">
+        <link rel="shortcut icon" href="/img/fav.png">
         <meta name="author" content="codepixer">
         <meta name="description" content="">
         <meta name="keywords" content="">
@@ -79,31 +79,17 @@
                             <td>EXPIRY DATE</td>
                             <td>TOKEN</td>
                         </tr>
- 
-                        <tr>
-                            <td>Birthdays</td>
-                            <td>15000 </td>
-                            <td>11/2/2019</td>
-                            <td>11/2/2021 </td>
-                            <td>bfkhjf </td>
-                        </tr>
-
-                         <tr>
-                            <td>Actors</td>
-                            <td>25000 </td>
-                            <td>11/4/2019</td>
-                            <td>11/2/2021 </td>
-                            <td>fgesgh </td>
-                        </tr>
-                        
-                         <tr>
-                            <td>Quotes</td>
-                            <td>35000 </td>
-                            <td>11/6/2019</td>
-                            <td>11/2/2021 </td>
-                            <td>mneshdb </td>
-                        </tr> 
-
+                        <% Payment.all.each do |p| %>
+                            <% if p.email == current_user.email %>
+                                <tr>
+                                    <td><%= p.scrapper.name =%></td>
+                                    <td><%= p.plan =%></td>
+                                    <td><%= p.purchase_date =%></td>
+                                    <td><%= p.expiry_date =%></td>
+                                    <td style="max-width: 300px; overflow: hidden"><%= p.token =%></td>
+                                </tr>                                
+                            <% end %>
+                        <% end %>
                     </tbody>
                 </table>
 
@@ -128,8 +114,6 @@
                             <input name="name" placeholder="Name of API" class="common-input mb-20 form-control" type="text">
                         
                             <input name="link" placeholder="Link of Scrapper" class="common-input mb-20 form-control" type="text">
-
-                            <input name="email" placeholder="Email" class="common-input mb-20 form-control" type="text">
 
                             <textarea class="common-textarea mt-10 form-control" name="message" placeholder="Messege"></textarea>
 

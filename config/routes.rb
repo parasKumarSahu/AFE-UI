@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     get 'scrapper_create', to: "api#scrapper_create"
     get 'upload_scrapper', to: "api#upload_scrapper"
     get 'drop_scrapper', to: "api#drop_scrapper"
+    get 'purchase', to: "api#purchase"
+
     root to: "api#index"
 
    devise_scope :user do  

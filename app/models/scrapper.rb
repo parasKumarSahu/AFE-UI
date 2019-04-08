@@ -8,4 +8,5 @@ class Scrapper
   field :price2, type: String
   field :price3, type: String
   field :uploaded, type: String
+  field :date, type: DateTime
 end
