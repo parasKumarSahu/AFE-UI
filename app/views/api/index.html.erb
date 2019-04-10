@@ -116,7 +116,9 @@
 										<ul>
 											<li>10 requests/minute</li>
 										</ul>
+						          	<% if current_user.email != "admin@example.com" %>
 										<button onclick="window.location.href='/purchase?name=<%= api.name =%>&plan=Standard'" class="primary-btn price-btn mt-20 purchase">Purchase Plan</span></button>
+									<% end %>	
 									</div>								
 								</div> 
 							</div>
@@ -136,7 +138,9 @@
 										<ul>
 											<li>20 requests/minute</li>
 										</ul>
+						          	<% if current_user.email != "admin@example.com" %>
 										<button onclick="window.location.href='/purchase?name=<%= api.name =%>&plan=Business'" class="primary-btn price-btn mt-20 purchase">Purchase Plan</span></button>
+									<% end %>	
 									</div>								
 								</div> 
 							</div>	
@@ -156,7 +160,9 @@
 										<ul>
 											<li>60 requests/minute</li>
 										</ul>
+						          	<% if current_user.email != "admin@example.com" %>
 										<button onclick="window.location.href='/purchase?name=<%= api.name =%>&plan=Ultimate'" class="primary-btn price-btn mt-20 purchase">Purchase Plan</span></button>
+									<% end %>	
 									</div>								
 								</div> 
 							</div>												
