@@ -3,7 +3,7 @@ class Payment
   field :email, type: String
   field :plan, type: String
   field :token, type: String
-  field :purchase_date, type: DateTime
-  field :expiry_date, type: DateTime
+  field :purchase_date, type: Date
+  field :expiry_date, type: Date
   belongs_to :scrapper, foreign_key: :scrapper_id
 end

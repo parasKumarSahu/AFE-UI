@@ -67,7 +67,7 @@ class ApiController < ApplicationController
 	        uri = URI('http://ec2-18-223-126-21.us-east-2.compute.amazonaws.com:3000/users')
 	        http = Net::HTTP.new(uri.host, uri.port)
 	        req = Net::HTTP::Post.new(uri.path)
-	        req.set_form_data({name: s.name, username: params[:plan],
+	        req.set_form_data({api_name: s.name, plan: params[:plan],
 	        	email: current_user.email, password: current_user.id.to_str})
 	        res = http.request(req)
 	        puts "response #{res.body}"
@@ -83,17 +83,18 @@ class ApiController < ApplicationController
 	        uri = URI('http://ec2-18-223-126-21.us-east-2.compute.amazonaws.com:3000/auth/login')
 	        http = Net::HTTP.new(uri.host, uri.port)
 	        req = Net::HTTP::Post.new(uri.path)
-	        req.set_form_data({email: current_user.email, password: current_user.id.to_str})
+	        req.set_form_data({api_name: s.name, plan: params[:plan],
+	        	email: current_user.email, password: current_user.id.to_str})
 	        res = http.request(req)
 	        json_res = JSON.parse(res.body)
 	        puts "response #{res.body}"
+		    Payment.create(scrapper: s, plan: params[:plan],
+		    	purchase_date: Date.today.to_date, expiry_date: Date.today.to_date+1,
+		    	token: json_res["token"], email: current_user.email)
+
 	    rescue => e
 	        puts "failed #{e}"
 	    end
-
-	    Payment.create(scrapper: s, plan: params[:plan],
-	    	purchase_date: Date.today, expiry_date: json_res["exp"],
-	    	token: json_res["token"], email: current_user.email)
 
 		redirect_to "/api/dashboard"
 	end	
